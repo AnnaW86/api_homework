@@ -29,7 +29,7 @@ const CountrySelector = ({countries, addCountry, getPriorityCountries}) => {
 
     const countryOptions = countries.map((country) => {
         return (
-            <option key={keys.shift()} value={country.name.official}>{country.name.common}</option>
+            <option key={keys.shift()} value={country.name.official}>{country.name.official}</option>
         )
     })
 
@@ -39,11 +39,20 @@ const CountrySelector = ({countries, addCountry, getPriorityCountries}) => {
         <>
             <h2>Select a country you would like to visit:</h2>
             <form id="form" onSubmit={handleFormSubmit}>
-                <select onChange={handleSelect}>
-                    <option value="--">--</option>
-                    {countryOptions}</select>
-                <input type="checkbox" id="priorityCheckbox" />
-                <input type="submit" value="Add Country"/>
+                {/* <div> */}
+                    <div class="input-selector">
+                        <select onChange={handleSelect}>
+                            <option value="--">--</option>
+                            {countryOptions}</select>
+                        <div>
+                            <label htmlFor="priorityCheckbox">Select to mark as priortity:</label>
+                            <input type="checkbox" id="priorityCheckbox" name="priorityCheckbox"/>
+                        </div>
+                    </div>
+                    <div class="input-submit">
+                        <input type="submit" value="Add Country"/>
+                    </div>
+                {/* </div> */}
             </form>
         </>
     );

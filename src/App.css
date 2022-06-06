@@ -36,3 +36,80 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  margin: 30px;
+}
+
+.display-container {
+  display: flex;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.input-submit input {
+  height: 60px;
+  width: 60px;
+  white-space: normal;
+  /* align-items: center; */
+  text-align: center;
+  border-radius: 50%;
+  border: 0.5px solid teal;
+  background-color: rgba(0, 128, 128, 0.272);
+  padding: 1px;
+  
+}
+
+.input-selector {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-right: 45px;
+}
+
+.input-selector > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+.list-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.country-container {
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: column; */
+  align-items: center;
+  width: 400px;
+  /* max-height:fit-content; */
+
+}
+.country-container > button {
+  height: fit-content;
+  min-width: fit-content;
+}
+
+.country-container > p {
+  margin: 10px;
+}
+
+#selected-countries {
+  margin-right: 45px;
+}
+
+button {
+  min-width: 20px;
+  min-height: 20px;
+  color: red;
+  border-radius: 50%;
+  border: 0.5px solid rgba(216, 112, 147, 0.729);
+  background-color: rgba(255, 0, 0, 0.069);
+}

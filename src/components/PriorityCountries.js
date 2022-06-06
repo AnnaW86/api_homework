@@ -7,13 +7,22 @@ const PriorityCountries = ({priorityCountries, removeFromPriority}) => {
     if (priorityCountries.length > 0) {
         return (
             <>
-            <p>Priority Countries:</p>
-            {priorityCountries.map(country => 
-                <>
-                    <p>{country.flag} {country.name.official}</p>
-                    <button type="submit" onClick={() => {removeFromPriority(country)}}>Mark as not priority</button> 
-                </>
+            <div class="list-container">
+                <div class="list-heading">
+                    <h3>Priority Countries:</h3>
+                    <p>Remove:</p>
+                </div>
+                
+                {priorityCountries.map(country => 
+                    <>
+                        <div class="country-container">
+                            <p>{country.flag} {country.name.official}</p>
+                            <button type="submit" onClick={() => {removeFromPriority(country)}}>x</button> 
+                        </div>
+                        <hr />
+                    </>
                 )}
+            </div>
             </>
 
         )

@@ -13,8 +13,18 @@ const CountriesContainer = () => {
         console.log("Getting country data");
         fetch("https://restcountries.com/v3.1/all")
         .then( response => response.json())
-        .then( data => setCountries(data))
+        .then( data => setCountries(data.sort(sortCountries)))
     };
+
+    const sortCountries = ( a, b ) => {
+        if ( a.name.official < b.name.official ){
+          return -1;
+        }
+        if ( a.name.official > b.name.official ){
+          return 1;
+        }
+        return 0;
+      }
 
     const addCountry = (submittedCountry) => {
         setSelectedCountries([...selectedCountries, submittedCountry]);
@@ -47,8 +57,10 @@ const CountriesContainer = () => {
         <>
             <h1>Plan your travels</h1>
             <CountrySelector countries={countries} addCountry={addCountry} getPriorityCountries={getPriorityCountries}/>
-            <CountryDetails selectedCountries={selectedCountries} removeCountry={removeCountry}/>
-            <PriorityCountries priorityCountries={priorityCountries} removeFromPriority={removeFromPriority}/>
+            <div class="display-container">
+                <CountryDetails selectedCountries={selectedCountries} removeCountry={removeCountry}/>
+                <PriorityCountries priorityCountries={priorityCountries} removeFromPriority={removeFromPriority}/>
+            </div>
         </>
     );
 };
